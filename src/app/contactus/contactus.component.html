@@ -1,0 +1,28 @@
+<h2>Contact Us</h2>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="form-group">
+        <label class= "control-label" for= "name">Name: </label>
+        <input type="text" class="form-control" for="name" name ="name" placeholder="Your name" minlength="3"  [(ngModel)]="name" required #nameInput="ngModel"> 
+        <div class="help is-error" *ngIf="nameInput.invalid">Name required and must be > 3 chars</div>
+    </div>
+    <br>
+    
+    <div class="form-group">
+        <label class= "control-label" for= "email">Email: </label>
+        <input type="email" class="form-control" for="email" name ="email" placeholder="Your Email"   [(ngModel)]="email" required email #emailInput="ngModel">
+        <div class="help is-error" *ngIf="emailInput.invalid">Email invalid</div>
+    </div>
+    <br>
+    
+    <div class="form-group">
+        <label class= "control-label" for= "message">Message: </label>
+        <textarea type="textarea" class="form-control" for="message" name ="message" placeholder="Your Message"  [(ngModel)]="message" required #messageInput="ngModel"></textarea>
+        <div class="help is-error" *ngIf="messageInput.invalid">Message required</div>
+    </div>
+    <br>
+    
+    
+    <button class="btn btn-primary pull-right" type="submit">Submit</button>
+</form>
